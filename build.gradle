@@ -1,0 +1,27 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.papermc.io/repository/maven-public/" }
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.20.2-R0.1-SNAPSHOT'
+}
+
+mainClassName = 'online.refract.minemania.Main'
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}
+
+def serverPluginsDirPath = '/home/kayon/games/minecraft/servers/datapack_1.20.2/plugins'
+
+task buildOnChange(type: Copy) {
+    dependsOn 'build'
+    from "${buildDir}/libs"
+    into serverPluginsDirPath
+}
+

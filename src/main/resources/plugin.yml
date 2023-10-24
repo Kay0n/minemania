@@ -1,0 +1,7 @@
+name: MineMania
+version: 1.0.0
+main: online.refract.minemania.Main
+api-version: 1.20
+commands:
+  minemania:
+    usage: "/minemania <query>"
